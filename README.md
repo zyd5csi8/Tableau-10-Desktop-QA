@@ -3,9 +3,9 @@
 Exam notes with links to questions, and solutions that
 exemplify what's needed / asked in the Tableau 10 QA Exam.
 
-Large part of the content from @igponce, really appreicate it.
+Large part of the content from **@igponce**, really appreicate it.
 
-This note mainly follow the structure of Exam Prep Guid. I also added some contents from course "Data Visual and Communication" by Hettie Tabor.
+This note mainly follow the structure of Exam Prep Guid. I also added some contents from course **"Data Visual and Communication"** by **Hettie Tabor**.
 
 Hopefully enough to pass (75%).
 
@@ -15,8 +15,11 @@ http://mkt.tableau.com/files/Desktop-10-QA-Exam-Prep-Guide.pdf
 Certification homepage:
 https://www.tableau.com/support/certification
 
+# Exam Prep Guid Part
+----------------------------------------------------------------------------------------------------------------------------------------
 
-# Data Connections
+
+# 1. Data Connections (23%)
 ## Understand how to connect to Tableau Server
 
 Check:
@@ -26,53 +29,67 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/examples_tableauserver.
 
 ### Parallel query
 
-Tableau will perform queries in parallel whenever possible.
-If we're using data from different data sources, Tableau will make queries in parallel without waiting one datasource query to finish before it makes the second query.
+**WHAT?** Tableau will perform queries in parallel **whenever possible**.That is, multiple queries in the same time.
 
-The level of paralelism is configurable on the 'connection-configs.xml' file (located in the Tableau instalation dir), see http://kb.tableau.com/articles/howto/Configuring-Parallel-Queries-in-Tableau-Desktop
+In more details, if we're using data from different data sources, Tableau will make queries in parallel without waiting one datasource query to finish before it makes the second query.
 
-Why? would anyone like to limit the number of connections for datasources, joins, etc?
-Because it might be a) starving other processes that access the datasource, or b) licensing issues.
+*Before version 9.0, tableau desktop and tableau server can only build one connection to one data source, and perform the queries sequentially. So, the totally running time <= sum(single runnning times). After set the Parallel Query features, multiple queries will run at the same time to improve the performance.*
+
+**LIMITS**
+- **Parallel queries will run only when possible. **
+If a query is based on a field already queried, then the parallel query will not run and will wait until the previous query will end.
+The parallel queries will run in parallel only if there are not concurrent queries on the same field/table.
+
+- **if too many queries (or resource-intensive queries) are happening in parallel, the performance may be slower than expected.**
+
+The level of paralelism is configurable on the 'connection-configs.xml' file (located in the Tableau instalation dir)
+
+From: http://kb.tableau.com/articles/howto/Configuring-Parallel-Queries-in-Tableau-Desktop
 
 ### Data engine vectorization
 
-Scope: Calculations
+**WHAT?** A new feature in Tableau 9. Most articles don't go deep into this topic. It's a cpu calculation improve to make performance better.
 
-From https://alanattableau.files.wordpress.com/2015/07/designing-efficient-workbooks-v92.pdf
-
+```
 Now tableau uses SIMD instructions (SSE4.1) to make calculations, thus better filling the
 data and execution pipeline of the processor.
+```
 
-No data about SSE4.2, AVG, or using GPUs to do this... by now.
+From https://alanattableau.files.wordpress.com/2015/07/designing-efficient-workbooks-v92.pdf
 
 
 ### Parallel aggregation
 
-Scope: Calculations, joins, etc.
+**WHAT?** A function to run multiple aggregations at the same time.
+
+Tableau will use multiple cores where possible. The data engine can now run aggregations in parallel, splitting the work across multiple cores. 
+
+By default, the maximum degree of parallelism is **(number of available logical processors) / 2**. This means that query operations on data extracts can run up to N times faster in Tableau 9 (where N is the number of cores in the machine).
 
 From https://alanattableau.files.wordpress.com/2015/07/designing-efficient-workbooks-v92.pdf
 
-Tableau will use multiple cores where possible. The data engine can now run aggregations in parallel, splitting the work across multiple cores. By default, the maximum degree of parallelism is (number of available logical processors) / 2. This means that query operations on data extracts can run up to N times faster in Tableau 9 (where N is the number of cores in the machine).
-
 ### External query caching
 
-Tableau will cache data in memory / disk to avoid to ask ("go to the network") or parse data that won't have changed.
-A good example of this is a file-based data.
-With extenal query caching Tableau doesn't need to parse a *whole* excel file to show some data.
-This data can be cached efficiently.
-Warning: when the cache is invalidated, it will need to re-parse the file again, so it's a good idea to maka an extract unless the data is really tiny or can change unexpectedly.
+**WHAT?** A function to improve the cache performance.
+
+Tableau will cache data in memory / disk to avoid to ask ("go to the network") or parse data that won't have changed (E.g. file-based data).
+
+With extenal query caching, Tableau doesn't need to parse a **whole** file to show some data.
+This data can be presented as cache goes on.
+
+**LIMITS** when the cache is invalidated, it will need to re-parse the file again, so it's a good idea to maka an extract unless the data is really tiny or can change unexpectedly.
 
 ### Query fusion
 
-Scope: Dashboard
+**WHAT?** A function to improve dashbord queries running performance.
 
-Looks at all of dashboard queries and tries to eliminate any redundant queries.
-How? Combining queries together and using the results.
+Tableau will at all of dashboard queries and tries to eliminate any redundant queries.
 
-If the same query is needeed in the same dashboard in several sheets, Tableau
-tries to combine this multiple queryes into (just) one.
+It combining queries together and using the results.
+E.g. If the same query is needeed in the same dashboard in several sheets, Tableau
+tries to combine this multiple queryes into (just) one. 
 
-This works with queries with the same LOD !!
+**This works with queries with the same LOD.**
 
 
 ## Understand how to use Automatic & Custom Split
