@@ -36,7 +36,7 @@ In more details, if we're using data from different data sources, Tableau will m
 *Before version 9.0, tableau desktop and tableau server can only build one connection to one data source, and perform the queries sequentially. So, the totally running time <= sum(single runnning times). After set the Parallel Query features, multiple queries will run at the same time to improve the performance.*
 
 **LIMITS**
-- **Parallel queries will run only when possible. **
+- **Parallel queries will run only when possible.**
 If a query is based on a field already queried, then the parallel query will not run and will wait until the previous query will end.
 The parallel queries will run in parallel only if there are not concurrent queries on the same field/table.
 
