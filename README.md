@@ -94,46 +94,53 @@ tries to combine this multiple queryes into (just) one.
 
 ## Understand how to use Automatic & Custom Split
 
-Scope: Data Integration
+**WHAT?** Split a single column to multiple columns (up to 10 new columns)
 
-https://onlinehelp.tableau.com/current/pro/desktop/en-us/split.html
+**WHEN?** Sometimes your data has multiple fields encoded inside string fields. Or u just want to split (e.g. full name & first name)
 
-When? Sometimes your data has fields encoded inside string fields.
-Why? Denormalization, you cannot touch the schema, etc.
+**WHY?** Denormalization, you cannot touch the schema, etc.
 
-Automatic split happens when tableau can guess what kind of data is inside,
-separators, etc...
+- Automatic split: happens when tableau can guess what kind of data is inside,separators, etc...
+- Custom split: Mannually set the model of split. Similar to calculated field.
 
-Data Split cannot happen automagicaly. Tableau will only split fields it's told to do so.
+Data Split cannot happen automagicaly. Tableau will only split fields it's told to do so (Mannually do it).
 
 You can split data from the Data pane, or right-click: Transform -> Split.
 
-Important: Data from splits cannot be used for Joing tables; but can be used for blending.
+**Important: Data from splits cannot be used for Joing tables; but can be used for blending.**
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/split.html
 
 ## Join tables from single and multiple databases
 
+Same joins (inner, left, right, full & union) with SQL.
+
+**2 Types:**
+
+- Join tables from same data source: just drag tables and set key (and other configerations)
+
+- Join tables from different data sources: build 2 difference connections, and then drag tables.
+
+**Important**
+
+- Null Value: if we use simple join, the Null value will be excluded (deleted). If we use **"Join null values to null values"**, Null value will be used in the join process.
+
+- Colation problems (like having fields on UTF-8 and CP850 on different connections).
+
+- Problems with different date formats (be careful to use the same Level of Detail for all data sources).
+
+Seems like lot of questions are from this part. Read the following page carefully before taking the certification.
+
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/joining_tables.html
-
-No need to use Apache Drill.
-Tableau can Join tables from different databases like if it were from the same one.
-Trick is you must make two different connections, one for each data source.
-
-If you must connecto to extract files, it must be done on the *first* connection.
-Why? because this way it retains all calculations, and properties.
-
-Advantage: Tableau runs queries to different sources in parallel (like blending).
-
-Warning !!!
-
-Colation problems (like having fields on UTF-8 and CP850 on different connections).
-Also, problems with different date formats (be careful to use the same Level of Detail
-for all data sources).
 
 ## Data Preparation
 
 ### Blending
 
-What is Blending?
+**WHAT?** Mannually build connections between different data sources
+
+**WHEN?** You don't want to put all the data together (using join or union), perhaps because different details level, join causes duplicate or too much data.
+
 - A left join-like operation between different datasources.
 - Local to the view
 - You can amend some data (using change alias option) on the _primary_ data source (you cannot do this on a Join operation).
@@ -143,22 +150,19 @@ Look at the datasources:
 Blue check -> Primary data source (the left part of the left join)
 Orange check -> Secondary source (the ritht part of the left join)
 
-#### Automatic Blend
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/multiple_connections.htm
+
+**Automatic Blend**
+
+Do not mannually set keys in relationship.
 
 Tableau guesses the blend looking for a field in both data sources with the same name.
-Usually it gets it right :-)
 
-#### Manual Blend
+**Manual Blend**
 
-You need to make a manual blend *when* a) fields have different names (Tableau cannot know if they're related or not),
-*or* b) you want to blend datasources using multiple fields as keys.
+Mannually set keys in relationship cause you do not like the default one.
 
-In either case, you have to edit the relationship between datasources. How?
-
-Select from the top level menu: "Data" -> "Edit Relationship".
-
-*hint:* It's easy to forget Tableau has top level application menu because most of the time you don't need to use it.
-
+"Data" -> "Edit Relationship".
 
 ### Metadata Grid
 
