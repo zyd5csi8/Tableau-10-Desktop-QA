@@ -10,13 +10,20 @@ This note mainly follow the structure of Exam Prep Guid. I also added some conte
 Hopefully enough to pass (75%).
 
 Exam prep guide:
-http://mkt.tableau.com/files/Desktop-10-QA-Exam-Prep-Guide.pdf
+https://mkt.tableau.com/files/DesktopQA_ExamGuide.pdf
 
 Certification homepage:
 https://www.tableau.com/support/certification
 
 # Exam Prep Guid Part
 ----------------------------------------------------------------------------------------------------------------------------------------
+# 0. Dimensions and Measures
+
+Dimension: Qualitative values that cannot be aggregated(Blue).
+
+Measures: Quantitative, numeric values that can be aggregated (Green).
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/datafields_typesandroles.htm
 
 
 # 1. Data Connections (23%)
@@ -166,181 +173,243 @@ Mannually set keys in relationship cause you do not like the default one.
 
 ### Metadata Grid
 
-Sometimes a list of fields is more useful than a preview of the data so we’ve added a “Metadata” view of your connection.
+**WHAT?** In Data Source page, Data Preview part, change the table to a list of field name
 
-It displays, the field name, table, and remote field name.
-In the case of splits, there is no remote field name.
-For calculations, there is no table field.
+**IN MORE DETAILS:**
+
+- Sometimes a list of fields is more useful than a preview of the data so we’ve added a “Metadata” view of your connection.
+
+- It displays, the field name, table, and remote field name.
+
+- For calculations and splits, there is no table field.
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/environment_datasource_page.htm#Metadata
 
 https://www.tableau.com/about/blog/2015/1/tableau-90-auto-data-prep-stay-flow-35980#ucsrKSAg7CtOuoBL.99
 
 ### Pivot
 
-Example:
+2 ways to create Pivot tables:
 
-| dimension1 | dimension2 | year 2015 | year 2016 |year 2017 |
-|------------|------------|-----------|-----------|----------|
-| data |data |data |data |data |
+- "Pivot" from grid
 
-The fields "year201[567]" are pivoted.
-Tableau cannot work easily with this kind of data unless you make an analytical table form it.
+- Pivot using custom SQL (can only do for Excel or text files)
 
-How? Using the pivot option.
+**More Details: **
 
 - The Pivot option is available from the grid and metadata grid.
+
 - All fields in the pivot must be from the same connection.
+
 - Only one pivot is allowed per data source.
+
 - Pivot fields can be used as the join key.
+
 - The Pivot option cannot be used in calculated fields.
 
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/pivot.htm
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/customsql.htm
 
 ### Union
 
-This is similar to database partitioning:
+**WHAT?** Same as the union in SQL.
 
-You have part of your data in a datasource, like for example, the fist half of 2016,
-and in another datasource you have the second half of 2016.
+**Details:** 
 
-Potential problem with unions: changed names in fields from file-to-file.
-In this case you'll need to Merge the columns into one (with right click - the option is over the Pivol command).
+- Connect to 2 data sources and then create a "New Union"
 
-https://www.tableau.com/about/blog/2016/1/combine-your-data-files-union-tableau-93-48891
+- "Wildcard" option is available to search for files to union together
+
+- Mismatched fields in the union can be merged (or change name on all source files)
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/union.htm
 
 ### Data Interpreter
 
-Sometimes the data from files does not start at row1.
-Maybe it's displaced several rows with disparate content before (like metadata about when the data was collected, copyright, etc...).
-This is could happen with data published by official statistics agencies (EUROSTAT, INE, etc.)
+**WHAT?** A function to clean the data from titles, notes, footers, empty cells etc.
 
-Example:
+Data Interpreter will automatically generate a table from the source data with titles or notes.
 
-```{text}
-EUROPEAN CLIMATE ASSESSMENT & DATASET (ECA&D), file created on 26-06-2017
-THESE DATA CAN BE USED FREELY PROVIDED THAT THE FOLLOWING SOURCE IS ACKNOWLEDGED:
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/data_interpreter.htm
 
-Klein Tank, A.M.G. and Coauthors, 2002. Daily dataset of 20th-century surface
-air temperature and precipitation series for the European Climate Assessment.
-Int. J. of Climatol., 22, 1441-1453.
-Data and metadata available at http://www.ecad.eu
-
-FILE FORMAT (MISSING VALUE CODE IS -9999):
-
-01-06 SOUID: Source identifier
-08-15 DATE : Date YYYYMMDD
-17-21 HU   : humidity in 1 %
-23-27 Q_HU : Quality code for HU (0='valid'; 1='suspect'; 9='missing')
-
-This is the blended series of station SPAIN, BARCELONA-EL RAVAL (STAID: 11014).
-Blended and updated with sources: 155989 
-See file sources.txt and stations.txt for more info.
-
- SOUID,    DATE,   HU, Q_HU
-155989,20080101,   v1,    v2
-...
-```
 
 ## Understand connection options
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/basicconnectoverview.htm
+
 ## Understand how to connect to different file types
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/examples_extract.htm
 
 ## Understand data extract capabilities
 
+**WHAT?** Data Extract (TDE) is a data snapshot that created and stored on local or server.
 
+https://www.tableau.com/about/blog/2014/7/understanding-tableau-data-extracts-part1
+
+**WHY USE IT?** 3 main reasons:
+
+- Improve performance to make data loading faster
+
+- Pre-aggregations: create aggregated extract to make the data smaller
+
+https://www.tableau.com/about/blog/2014/7/why-use-tableau-data-extracts-32187
+
+https://www.tableau.com/tableau-data-extracts-part3
+
+**TDE vs. Live Connections**
+
+-  An 'extract' connection is a connection with a static database, which is refreshed every day/hour/period. All data is copied from the datasource to Tableau Server. Refreshing the datasource will not give you the latest data - you have to refresh the extract to get these.
+
+-  A live connection will query the underlying data in the datasource/database - refreshing the visualisation will give you the latest results. No data is copied to Tableau Server for pre-processing.
+
+- Some of the calculated functions are limited to TDE
+
+http://drawingwithnumbers.artisart.org/tde-or-live-when-to-use-tableau-data-extracts/
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/extracting_data.htm
 
 ## Understand Shadow extracts
 
-When used: when processing non-legacy excel files, statistical files, or text files.
-Why? Processing some file formats is CPU/IO intensive.
+**WHAT?** Shadow extracts is data that Tableau stores when using file (like non-legacy excel) to make loading data faster.
+
+**WHEN?** when processing non-legacy excel files, statistical files, or text files.
+
+**WHY?** Processing some file formats is CPU/IO intensive.
+
+**MORE DETAILS: **
+
+- They have .ttde extension.
+
+- Tableau will store up to 5 files with .ttde extension.
+
+- Altough they're named extracts, its file format is not the same as .tde (extract) files.
 
 Location:
     - For Windows: Users\AppData\Local\Tableau\Caching\TemporaryExtracts
     - For Mac: ~Library/Caches/com.tableau.Caching/TemporaryExtracts
     - Sometimes also in the "My Tableau Repository\Shadow Extras" folder.
 
-Shadow extracts is data that Tableau stores when using file (like non-legacy excel) to make loading data faster.
-They have .ttde extension.
-Tableau will store up to 5 files with .ttde extension.
-Altough they're named extracts, its file format is not the same as .tde (extract) files.
-
 http://kb.tableau.com/articles/issue/low-disk-space-because-of-ttde-files
+
 http://www.icancrack.com/index.php/52/what-is-shadow-extract-in-tableau
 
-# Organizing & Simplifying Data
-Understand how to:
+https://community.tableau.com/thread/201115
+
+# 2. Organizing & Simplifying Data (10%)
 
 ## Filter data
 
+- Filter data from views:
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/filtering.htm
+
+- Filter data from data sources:
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/filtering_datasource.htm
+
 ## Sort data
+
+https://onlinehelp.tableau.com/current/reader/desktop/en-us/reader_sort.htm
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/sortgroup_sorting_computed_howto.htm
 
 ## Build groups
 
+Create group to put dimensions into them (e.g. cities into US & Canada)
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/sortgroup_groups_creating.htm
 
 
 ## Build hierarchies
 
-To build hierarchies, drag the sub-hierarchy field into the top level.
-For instacne if you have product and product category fields, to create a Product Category - Product hierarchy, you can drag Product over Product Category to create a hierarchy.
+To build hierarchies, drag the sub-hierarchy field into the top level. (E.g. Country - State - City)
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/qs_hierarchies.htm
 
 ## Build sets
 
-Why sets?
+**WHAT?** A dynamic group.
 
-Sets are useful in situations it's needed to test in-out membership.
-They can built by hand selecting members, using an expression, or *taking the top XX* members by aggregating a measure.
+**Why**?
 
-Some complicated questions like, finding the minimum ticket amounts from the top 6 customers can be easily calculated filtering with sets.
+Sets are useful in situations it's needed to test in-out membership (AB Testing).
 
-# Field & Chart Types
+Except mannually selecting members from a list, sets can be created by certain conditions or top.
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/sortgroup_sets_create.htm
+
+https://interworks.com/blog/kwagner/2014/06/30/when-use-filters-groups-sets-tableau/
+
+# 3. Field & Chart Types (15%)
 ## Understand discrete v. continuous
 
-How to tell from data:
-Blue pill = Discrete
-Green pill = continuous
+**Distinguish them:**
 
-Discrete values -> Take a limited number of values (size: XS,S,M,L,XL - City: Madrid, Barcelona, Chigago).
-Could be numeric (customer ID).
-Discrete values are "individually separate and distinct".
+- Blue pill (#) = Discrete
 
-Continuous values "forming an unbroken whole, without interruption"
+- Green pill (#) = continuous
 
-Do not mistake with Dimensions and Measures, altough Dimensions are usually Discrete and Measures continuous.
+**Discrete values**
 
-Filtering and color are special for Dimensions and Measures.
+- Take a limited number of values (size: XS,S,M,L,XL - City: Madrid, Barcelona, Chigago), Could be numeric (customer ID).
 
-Filtering discrete values: choose members (by hand, or with regex).
-Filtering continuous: by range.
+- Add headers to the view.
 
-Coloring discrete values: Color palette.
-Coloring continuous values: Using a color gradient.
+- Discrete values are "individually separate and distinct".
 
-See http://onlinehelp.tableau.com/current/pro/desktop/en-us/datafields_typesandroles_dataroles_dimensionmeasure.html
+- Filtering by choosing members.
+
+- Color by color palette
+
+**Continuous values**
+
+- "forming an unbroken whole, without interruption"
+
+- Add axes (values) to the view
+
+- Filtering by range
+
+- Color by color gradient
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/datafields_typesandroles.htm
 
 ## Understand measure names and measure values
 
-This is important in charts that show different measures, like parallel coordinates charts.
+We must understand: measures are a set of numbers, which have 2 attributes: **measure names** and **measure values**.
 
-In this case you can drag to a row/column "measure names" and "measure values".
+When we use (part of the) measures to create a visualization, the inner logic is:
 
-To select different measures, you have to filter "measure names" in the filter card.
+- Show measure values on axis
 
-http://onlinehelp.tableau.com/current/pro/desktop/en-us/datafields_understanddatawindow_meavalues.html
+- Show measure names as field headers
+
+- Use measure names to filer out the measures we don't want.
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/datafields_understanddatawindow_meavalues.htm
 
 ## Understand generated fields
 
-Generated fields are fields that Tableau brings as a convenience,
-either by internal calculations, or by looking up an internal table / using an internal engine.
+**WHAT** Generated fields are fields that Tableau brings as a convenience,
+either by internal calculations, or by looking up an internal table / using an internal engine. Calculated fields are also a part of generated fields.
+
+**INCLUDING: **
 
 - Measure Names
+
 - Measure Values
+
 - Longitude and Latitude
+
 - Number of Records
 
-For instance longitude and latitude are generated by Tableau using its geolocation module (warning! be careful to match localization of geographical points like cities, states, postal codes, etc.. This can be configured in Tableau, but be warned when plotting stuff outside your country).
+- Calculated fields
+
+https://www.evolytics.com/blog/tableau-fundamentals-introduction-calculated-fields/
 
 ## Understand how and when to build:
 ### Histograms
-
-
-
 ### Heat maps
 
 Heat maps are like "histograms seen from above", or 2D histograms.
@@ -409,8 +478,7 @@ http://onlinehelp.tableau.com/current/pro/desktop/en-us/help.html#pareto.html
 ### Understand mark labels and annotations
 
 
-# Calculations
-## Understand how to:
+# 4. Calculations (17%)
 ## Manipulate string and date calculations
 ## Create quick table calculations
 
@@ -459,17 +527,7 @@ Syntax
 
 { FIXED: something_that_will_condition the outcome : calculation_that_depends_on_the_previous_result }
 
-# Dimensions and Measures
 
-Hint: If it makes sense to add it up, it's likely a measure.
-
-Dimension: The stuff you use to ask questions. The "who" you restrict the answer to.
-Measures: The numbers / answers you get.
-
-Measures usually are aggregated. It makes sense to see the total/max/min under the point of view of a Dimension.
-By default, Tableau will interpret numerical fields as Measures.
-
-Source: http://onlinehelp.tableau.com/current/pro/desktop/en-us/datafields_typesandroles_dataroles_dimensionmeasure.html
 
 
 
