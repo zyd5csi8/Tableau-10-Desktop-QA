@@ -621,9 +621,9 @@ LOD expression is a exppression in calculatied fields to set the LOD of calcualt
 
 | LOD | Descr | Use in | Example |
 |-----|-------|--------|---------|
-| INCLUDE | Adds the data from the dimension, regardless of what's on the view. | Get the calculation to include a lower level | **AVG({INCLUDE [Customer Name] : SUM([Sales])})** no filter, get sum of sales of each customer. |
-| EXCLUDE | Removes the data from the specified dimension, regardless of what's on the view. | Get the calculation to omit a lower level| **AVG({INCLUDE [Customer Name] : SUM([Sales])})** there is a lower level of filter *Month*, omit it, get sales sum of each customer. |
-| FIXED   | Uses the data in specified dimensions without reference to anything in the view. | Get the sum of a lower level | **{FIXED [Region] : SUM([Sales])}** Sales in that specific region, even though there are higher and lower level filters. |
+| INCLUDE | Adds the data from the dimension, regardless of what's on the view. | Get the calculation to include a lower level | **AVG({INCLUDE [Customer Name] : SUM([Sales])})** Get sum of sales of a lower level, each customer. |
+| EXCLUDE | Removes the data from the specified dimension, regardless of what's on the view. | Get the calculation to omit a lower level| **SUM({EXCLUDE [Month] : SUM([Sales])})** Omit level [Month], get sales sum of the higer level. |
+| FIXED   | Uses the data in specified dimensions without reference to anything in the view. | Get the sum of a lower level | **{FIXED [Region] : SUM([Sales])}** Get sum of sales on the sepcific [region] level. |
 
  
 
