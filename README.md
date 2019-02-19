@@ -553,6 +553,13 @@ Annotations: https://onlinehelp.tableau.com/current/pro/desktop/en-us/formatting
 
 # 4. Calculations (17%)
 ## Manipulate string and date calculations
+
+Get familiar with the important functions will be fine.
+
+- String functions: https://onlinehelp.tableau.com/current/pro/desktop/en-us/functions_functions_string.htm
+
+- Date functions: https://onlinehelp.tableau.com/current/pro/desktop/en-us/functions_functions_date.htm
+
 ## Create quick table calculations
 
 A table calculation is a transformation you apply to the values of a single measure in your view, based on the dimensions in the level of detail.
@@ -576,30 +583,55 @@ Just right click on a can be done right clicking a measure. There are some pre-f
 
 ## Use LOD calculations; types of LOD calculations
 
-When you add/remove a dimension from a graph, the quantities change.
-LOD calculations help us set the level of detail that we want for a particular field regardless of what is in the view.
+**What is LOD?**
 
-Three kinds of LOD calculations:
+- We know the information are in different levels (e.g. **[Sales] / [Profit]**, **SUM[ProfitRatio]** and **SUM(Sales) / SUM(Profit)**).
 
-| LOD | Descr |
-|-----|-------|
-| INCLUDE | Adds the data from the dimension, regardless of what's on the view. |
-| EXCLUDE | Removes the data from the specified dimension, regardless of what's on the view. |
-| FIXED   | Uses the data specified without any reference about anything in the view |
+- When we use aggregated and unaggregated data into the same calculation (e.g. **[Sales] – AVG([Sales])**) , error happends:
+
+> “Cannot mix aggregate and non-aggregate arguments with this function”
+
+- So, we need to change the function to **[Sales] - {AVG([Sales])}**, to assign the LOD and solve the problem.
+
+**What is LOD of Filter?**
+
+Before we discussing about LOD Expressions, we must understand the running squence of Filters and their LOD.
+
+There are different types of Flters in Tableau, and they will run in the following sequence:
+1. Extract Filters
+2. Data Source Filters
+3. Context Filters
+4. Dimension Filters
+   - = Where in SQL
+   - The place that FIXED LOD perform
+5. Measure Filter
+   - = Having in SQL
+   - The place that INCLUDE/EXCLUDE LOD perform
+6. Tablea Calculation Filters
+
+For the filters in the same type, the running sequence will be decided by the position.
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/calculations_calculatedfields_lod_overview.htm
+
+**What is LOD Expression?**
+
+LOD expression is a exppression in calculatied fields to set the LOD of calcualtion. In more details, it allow users to run calculations on the root data, before any filters.
+
+3 kinds of LOD calculations:
+
+| LOD | Descr | Use in | Example |
+|-----|-------|--------|---------|
+| INCLUDE | Adds the data from the dimension, regardless of what's on the view. | Get the calculation to include a lower level | **AVG({INCLUDE [Customer Name] : SUM([Sales])})** no filter, get sum of sales of each customer. |
+| EXCLUDE | Removes the data from the specified dimension, regardless of what's on the view. | Get the calculation to omit a lower level| **AVG({INCLUDE [Customer Name] : SUM([Sales])})** there is a lower level of filter *Month*, omit it, get sales sum of each customer. |
+| FIXED   | Uses the data in specified dimensions without reference to anything in the view. | Get the sum of a lower level | **{FIXED [Region] : SUM([Sales])}** Sales in that specific region, even though there are higher and lower level filters. |
 
  
-Stuff to try (from the superstore sample):
 
-- Sales contribution by city / region (with respect to country totals)
- 
-Syntax
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/calculations_calculatedfields_lod.htm
 
-```{R}
-{ FIXED : avg ({fixed [Product Sub-Category]  : sum([Profit]) }) 
-```
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/calculations_calculatedfields_lod_overview.htm
 
-{ FIXED: something_that_will_condition the outcome : calculation_that_depends_on_the_previous_result }
-
+https://www.tableau.com/about/blog/LOD-expressions
 
 
 
