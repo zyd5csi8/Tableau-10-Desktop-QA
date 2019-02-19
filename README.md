@@ -410,73 +410,146 @@ https://www.evolytics.com/blog/tableau-fundamentals-introduction-calculated-fiel
 
 ## Understand how and when to build:
 ### Histograms
+
+| Data  | Requirments |
+| ------------- | ------------- |
+| Mark type  | Automatic  |
+| Rows shelf:  | Continuous measure (aggregated by Count or Count Distinct)  |
+| Columns shelf:  | Bin (continuous or discrete)  |
+
+*What is bin? https://onlinehelp.tableau.com/current/pro/desktop/en-us/calculations_bins.htm*
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/buildexamples_histogram.htm
+
 ### Heat maps
 
-Heat maps are like "histograms seen from above", or 2D histograms.
-They're usefult to locate "hot spots" on data.
+| Data  | Requirments |
+| ------------- | ------------- |
+| Mark type  | Density  |
+| Rows and Columns:  | At least one continuous measure, and at least one measure or dimension  |
+| Marks card:  | At least one continuous measure  |
 
-Variables in both axes must be discrete (or made discrete by using calculations, like DATEPART('weekday',[Purchase Date]) ).
-Color comes from aggregating continuous [#num records], SUM([Sales]).
+A data table that locate "hot spots" on data (use marks card to show data rather than numbers).
 
-Size can also be useful for heat maps: playing with sizes can give you more white space that might make a heatmap easier to understand. Also a combination of color and size can highlight "big" hot spots that could be hidden when showing just one variable.
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/buildexamples_density.htm
+
+https://www.evolytics.com/blog/tableau-201-make-heat-map/
 
 ### Tree maps
 
-This kind of graphics does not show a tree.
-Instead it fills a rectangle with data, using area size to display each category importance.
+| Data  | Requirments |
+| ------------- | ------------- |
+| Mark type  | Automatic or Square  |
+| Color:  | Dimension or Measure  |
+| Size  | Measure  |
+| Label or Detail:  | Dimension(s)  |
 
-Tree maps can use two measures for coloring hierarchies. In this case, hierarchies will get its Chroma component from the fist dimension and the HUE/brigthness from the second.
+It fills a rectangle with data, using area size to display each category importance.
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/buildexamples_treemap.htm
 
 ### Bullet graphs
 
-This graphs don't resemble a bullet at first sight.
-They are like barcharts with a distribution showing progress towards a goal behing the bar.
+A variation of a bar graph to show goals (with different percentage) and actual number.
 
 https://www.interworks.com/blog/ccapitula/2014/12/29/tableau-essentials-chart-types-bullet-graph
 
-How to do it:
-
-There is a Bullet Graph quick access.
-https://onlinehelp.tableau.com/current/pro/desktop/en-us/qs_bullet_graphs.html
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/qs_bullet_graphs.htm
 
 
 ### Combined Axis Charts
 
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/qs_combo_charts.htm
 
 ### Dual Axis Charts
 
+https://kb.tableau.com/articles/howto/dual-axis-bar-chart-multiple-measures
+
+https://associationanalytics.com/2017/03/08/creating-a-dual-axis-chart-in-tableau/
 
 ### Scatter Plots
+
+Point graphs with trend lines (add from analytics).
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/buildexamples_scatter.htm
+
 ### Data Highlighter
-### Cross tabs
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/actions_highlight_highlighter.htm
+
+### Crosstabs (Text Table)
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/buildexamples_text.htm
+
 ### Motion charts
+
+Add the time line to page part.
+
+https://tableautraininghq.com/tableau-motion-chart/
+
+https://www.tutorialspoint.com/tableau/tableau_motion_charts.htm
+
 ### Bar in bar charts
+
+Add measure name to **Color** and trun off the **Stack Marks** on **Analysis**.
+
+https://www.decisivedata.net/blog/building-bullet-chart-tableau
+
 ### Box plots
+
+| Data  | Requirments |
+| ------------- | ------------- |
+| Mark type  | Circle  |
+| Columns shelf:  | Dimension  |
+| Rows shelf:  | Measure  |
+| Detail:  | Dimension  |
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/buildexamples_boxplot.htm
 
 ### Gantt Bar Charts
 
-Show duration in a calendar.
+Show duration on a calendar.
 
+| Data  | Requirments |
+| ------------- | ------------- |
+| Mark type  | Automatic or Gantt Bar  |
+| Columns shelf:  | Date or Time field (continuous measure)  |
+| Rows shelf:  | Dimension(s)  |
+| Size:  | Continuous measure  |
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/buildexamples_gantt.htm
+
+https://www.tableau.com/about/blog/2017/6/using-gantt-charts-tableau-manage-project-72429
 
 ### Paretos
 
-Similar to having an ordered barchart with the data, plus a cumulative distribution function overlaid on the chart.
-This is done with a dual axis, and a table calculation:
-
-- First make the barchart. Order the bars by value (descending).
-- Make a line chart with the same data as the barchart.
-  - Make a table calculation to compute the CDF: Running sum percentage.
-  - Change the CDF axis to go from 0 to 100%.
+A bar chart with a line chart. We can add table calculation on the bar (line).
 
 https://www.tableau.com/learn/tutorials/on-demand/pareto-charts
-http://onlinehelp.tableau.com/current/pro/desktop/en-us/help.html#pareto.html
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/pareto.htm
 
 ### Sparklines
 
-## Understand how to effectively use titles, captions  and tooltips
-### Understand how to edit axes
-### Understand mark labels and annotations
+A sparkline is a compact trend line chart without axis that fits in a small area and shows values over time.
 
+https://kb.tableau.com/articles/howto/creating-sparklines
+
+https://kb.tableau.com/articles/howto/creating-sparklines
+
+## Understand how to effectively use titles, captions  and tooltips
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/formatting_specific_titlecaption.htm
+
+## Understand how to edit axes
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/formatting_editaxes.htm
+
+## Understand mark labels and annotations
+
+Labels: https://onlinehelp.tableau.com/current/pro/desktop/en-us/formatting_specific_fields.htm
+
+Annotations: https://onlinehelp.tableau.com/current/pro/desktop/en-us/formatting_editaxes.htm
 
 # 4. Calculations (17%)
 ## Manipulate string and date calculations
