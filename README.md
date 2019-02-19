@@ -634,5 +634,36 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/calculations_calculated
 https://www.tableau.com/about/blog/LOD-expressions
 
 
+# 5. Mapping (9%)
+### Pan & Zoom
+### Filtering
+### Map layering
+### Custom territories
+### Lasso & Radial selection
+## Understand how to modify locations within Tableau
+## Understand how to import and manage custom geocoding
+## Understand how to use a background image map
+## Understand how to use Geographic search
+## Understand how to connect to spatial files
+
+# 6. Analytics (15%)
+## Reference Lines
+## Reference Bands
+## Trend Lines
+## Trend Model
+## Forecasting
+## Drag & Drop Analytics
+## Box Plot
+## Reference distributions
+## Statistical summary card
+## Instant Analytics
+
+# 7. Dashboards (11%)
+## Understand publishing & sharing options
+## Understand how to build dashboards
+## Understand dashboard actions
+## Understand Device Designer
+## Understand how to create a drill down report
+## Understand how to utilize visual best practices for dashboard design
 
 
