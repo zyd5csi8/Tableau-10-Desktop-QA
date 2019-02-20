@@ -15,6 +15,12 @@ https://mkt.tableau.com/files/DesktopQA_ExamGuide.pdf
 Certification homepage:
 https://www.tableau.com/support/certification
 
+# Data Visual and Communication Part
+----------------------------------------------------------------------------------------------------------------------------------------
+Go through all the notes of **Data Visual and Communication**.
+
+https://drive.google.com/drive/folders/15blyiQMiDzVUrunjUoAJsGFrR2Y_7ocu?usp=sharing
+
 # Exam Prep Guid Part
 ----------------------------------------------------------------------------------------------------------------------------------------
 # 0. Dimensions and Measures
