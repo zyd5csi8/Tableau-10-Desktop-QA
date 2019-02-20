@@ -33,14 +33,14 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/datafields_typesandrole
 
 
 # 1. Data Connections (23%)
-## Understand how to connect to Tableau Server
+## 1.1 Understand how to connect to Tableau Server
 
 Check:
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/examples_tableauserver.htm
 
-## Understand Performance Optimization
+## 1.2 Understand Performance Optimization
 
-### Parallel query
+### 1.2.1 Parallel query
 
 **WHAT?** Tableau will perform queries in parallel **whenever possible**.That is, multiple queries in the same time.
 
@@ -59,7 +59,7 @@ The level of paralelism is configurable on the 'connection-configs.xml' file (lo
 
 From: http://kb.tableau.com/articles/howto/Configuring-Parallel-Queries-in-Tableau-Desktop
 
-### Data engine vectorization
+### 1.2.2 Data engine vectorization
 
 **WHAT?** A new feature in Tableau 9. Most articles don't go deep into this topic. It's a cpu calculation improve to make performance better.
 
@@ -71,7 +71,7 @@ data and execution pipeline of the processor.
 From https://alanattableau.files.wordpress.com/2015/07/designing-efficient-workbooks-v92.pdf
 
 
-### Parallel aggregation
+### 1.2.3 Parallel aggregation
 
 **WHAT?** A function to run multiple aggregations at the same time.
 
@@ -81,7 +81,7 @@ By default, the maximum degree of parallelism is **(number of available logical 
 
 From https://alanattableau.files.wordpress.com/2015/07/designing-efficient-workbooks-v92.pdf
 
-### External query caching
+### 1.2.4 External query caching
 
 **WHAT?** A function to improve the cache performance.
 
@@ -92,7 +92,7 @@ This data can be presented as cache goes on.
 
 **LIMITS** when the cache is invalidated, it will need to re-parse the file again, so it's a good idea to maka an extract unless the data is really tiny or can change unexpectedly.
 
-### Query fusion
+### 1.2.5 Query fusion
 
 **WHAT?** A function to improve dashbord queries running performance.
 
@@ -105,7 +105,7 @@ tries to combine this multiple queryes into (just) one.
 **This works with queries with the same LOD.**
 
 
-## Understand how to use Automatic & Custom Split
+## 1.3 Understand how to use Automatic & Custom Split
 
 **WHAT?** Split a single column to multiple columns (up to 10 new columns)
 
@@ -124,7 +124,7 @@ You can split data from the Data pane, or right-click: Transform -> Split.
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/split.html
 
-## Join tables from single and multiple databases
+## 1.4 Join tables from single and multiple databases
 
 Same joins (inner, left, right, full & union) with SQL.
 
@@ -146,9 +146,9 @@ Seems like lot of questions are from this part. Read the following page carefull
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/joining_tables.html
 
-## Data Preparation
+## 1.5 Data Preparation
 
-### Blending
+### 1.5.1 Blending
 
 **WHAT?** Mannually build connections between different data sources
 
@@ -177,7 +177,7 @@ Mannually set keys in relationship cause you do not like the default one.
 
 "Data" -> "Edit Relationship".
 
-### Metadata Grid
+### 1.5.2 Metadata Grid
 
 **WHAT?** In Data Source page, Data Preview part, change the table to a list of field name
 
@@ -193,7 +193,7 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/environment_datasource_
 
 https://www.tableau.com/about/blog/2015/1/tableau-90-auto-data-prep-stay-flow-35980#ucsrKSAg7CtOuoBL.99
 
-### Pivot
+### 1.5.3 Pivot
 
 2 ways to create Pivot tables:
 
@@ -217,7 +217,7 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/pivot.htm
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/customsql.htm
 
-### Union
+### 1.5.4 Union
 
 **WHAT?** Same as the union in SQL.
 
@@ -231,7 +231,7 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/customsql.htm
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/union.htm
 
-### Data Interpreter
+### 1.5.5 Data Interpreter
 
 **WHAT?** A function to clean the data from titles, notes, footers, empty cells etc.
 
@@ -240,15 +240,15 @@ Data Interpreter will automatically generate a table from the source data with t
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/data_interpreter.htm
 
 
-## Understand connection options
+## 1.6 Understand connection options
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/basicconnectoverview.htm
 
-## Understand how to connect to different file types
+## 1.7 Understand how to connect to different file types
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/examples_extract.htm
 
-## Understand data extract capabilities
+## 1.8 Understand data extract capabilities
 
 **WHAT?** Data Extract (TDE) is a data snapshot that created and stored on local or server.
 
@@ -276,7 +276,7 @@ http://drawingwithnumbers.artisart.org/tde-or-live-when-to-use-tableau-data-extr
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/extracting_data.htm
 
-## Understand Shadow extracts
+## 1.9 Understand Shadow extracts
 
 **WHAT?** Shadow extracts is data that Tableau stores when using file (like non-legacy excel) to make loading data faster.
 
@@ -305,7 +305,7 @@ https://community.tableau.com/thread/201115
 
 # 2. Organizing & Simplifying Data (10%)
 
-## Filter data
+## 2.1 Filter data
 
 - Filter data from views:
 
@@ -315,26 +315,26 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/filtering.htm
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/filtering_datasource.htm
 
-## Sort data
+## 2.2 Sort data
 
 https://onlinehelp.tableau.com/current/reader/desktop/en-us/reader_sort.htm
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/sortgroup_sorting_computed_howto.htm
 
-## Build groups
+## 2.3 Build groups
 
 Create group to put dimensions into them (e.g. cities into US & Canada)
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/sortgroup_groups_creating.htm
 
 
-## Build hierarchies
+## 2.4 Build hierarchies
 
 To build hierarchies, drag the sub-hierarchy field into the top level. (E.g. Country - State - City)
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/qs_hierarchies.htm
 
-## Build sets
+## 2.5 Build sets
 
 **WHAT?** A dynamic group.
 
@@ -349,7 +349,7 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/sortgroup_sets_create.h
 https://interworks.com/blog/kwagner/2014/06/30/when-use-filters-groups-sets-tableau/
 
 # 3. Field & Chart Types (15%)
-## Understand discrete v. continuous
+## 3.1 Understand discrete v. continuous
 
 **Distinguish them:**
 
@@ -381,7 +381,7 @@ https://interworks.com/blog/kwagner/2014/06/30/when-use-filters-groups-sets-tabl
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/datafields_typesandroles.htm
 
-## Understand measure names and measure values
+## 3.2 Understand measure names and measure values
 
 We must understand: measures are a set of numbers, which have 2 attributes: **measure names** and **measure values**.
 
@@ -395,7 +395,7 @@ When we use (part of the) measures to create a visualization, the inner logic is
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/datafields_understanddatawindow_meavalues.htm
 
-## Understand generated fields
+## 3.3 Understand generated fields
 
 **WHAT** Generated fields are fields that Tableau brings as a convenience,
 either by internal calculations, or by looking up an internal table / using an internal engine. Calculated fields are also a part of generated fields.
@@ -414,8 +414,8 @@ either by internal calculations, or by looking up an internal table / using an i
 
 https://www.evolytics.com/blog/tableau-fundamentals-introduction-calculated-fields/
 
-## Understand how and when to build:
-### Histograms
+## 3.4 Understand how and when to build:
+### 3.4.1 Histograms
 
 | Data  | Requirments |
 | ------------- | ------------- |
@@ -427,7 +427,7 @@ https://www.evolytics.com/blog/tableau-fundamentals-introduction-calculated-fiel
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/buildexamples_histogram.htm
 
-### Heat maps
+### 3.4.2 Heat maps
 
 | Data  | Requirments |
 | ------------- | ------------- |
@@ -441,7 +441,7 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/buildexamples_density.h
 
 https://www.evolytics.com/blog/tableau-201-make-heat-map/
 
-### Tree maps
+### 3.4.3 Tree maps
 
 | Data  | Requirments |
 | ------------- | ------------- |
@@ -454,7 +454,7 @@ It fills a rectangle with data, using area size to display each category importa
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/buildexamples_treemap.htm
 
-### Bullet graphs
+### 3.4.4 Bullet graphs
 
 A variation of a bar graph to show goals (with different percentage) and actual number.
 
@@ -463,31 +463,31 @@ https://www.interworks.com/blog/ccapitula/2014/12/29/tableau-essentials-chart-ty
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/qs_bullet_graphs.htm
 
 
-### Combined Axis Charts
+### 3.4.5 Combined Axis Charts
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/qs_combo_charts.htm
 
-### Dual Axis Charts
+### 3.4.6 Dual Axis Charts
 
 https://kb.tableau.com/articles/howto/dual-axis-bar-chart-multiple-measures
 
 https://associationanalytics.com/2017/03/08/creating-a-dual-axis-chart-in-tableau/
 
-### Scatter Plots
+### 3.4.7 Scatter Plots
 
 Point graphs with trend lines (add from analytics).
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/buildexamples_scatter.htm
 
-### Data Highlighter
+### 3.4.8 Data Highlighter
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/actions_highlight_highlighter.htm
 
-### Crosstabs (Text Table)
+### 3.4.9 Crosstabs (Text Table)
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/buildexamples_text.htm
 
-### Motion charts
+### 3.4.10 Motion charts
 
 Add the time line to page part.
 
@@ -495,13 +495,13 @@ https://tableautraininghq.com/tableau-motion-chart/
 
 https://www.tutorialspoint.com/tableau/tableau_motion_charts.htm
 
-### Bar in bar charts
+### 3.4.11 Bar in bar charts
 
 Add measure name to **Color** and trun off the **Stack Marks** on **Analysis**.
 
 https://www.decisivedata.net/blog/building-bullet-chart-tableau
 
-### Box plots
+### 3.4.12 Box plots
 
 | Data  | Requirments |
 | ------------- | ------------- |
@@ -512,7 +512,7 @@ https://www.decisivedata.net/blog/building-bullet-chart-tableau
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/buildexamples_boxplot.htm
 
-### Gantt Bar Charts
+### 3.4.13 Gantt Bar Charts
 
 Show duration on a calendar.
 
@@ -527,7 +527,7 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/buildexamples_gantt.htm
 
 https://www.tableau.com/about/blog/2017/6/using-gantt-charts-tableau-manage-project-72429
 
-### Paretos
+### 3.4.14 Paretos
 
 A bar chart with a line chart. We can add table calculation on the bar (line).
 
@@ -535,7 +535,7 @@ https://www.tableau.com/learn/tutorials/on-demand/pareto-charts
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/pareto.htm
 
-### Sparklines
+### 3.4.15 Sparklines
 
 A sparkline is a compact trend line chart without axis that fits in a small area and shows values over time.
 
@@ -543,22 +543,22 @@ https://kb.tableau.com/articles/howto/creating-sparklines
 
 https://kb.tableau.com/articles/howto/creating-sparklines
 
-## Understand how to effectively use titles, captions  and tooltips
+## 3.5 Understand how to effectively use titles, captions  and tooltips
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/formatting_specific_titlecaption.htm
 
-## Understand how to edit axes
+## 3.6 Understand how to edit axes
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/formatting_editaxes.htm
 
-## Understand mark labels and annotations
+## 3.7 Understand mark labels and annotations
 
 Labels: https://onlinehelp.tableau.com/current/pro/desktop/en-us/formatting_specific_fields.htm
 
 Annotations: https://onlinehelp.tableau.com/current/pro/desktop/en-us/formatting_editaxes.htm
 
 # 4. Calculations (17%)
-## Manipulate string and date calculations
+## 4.1 Manipulate string and date calculations
 
 Get familiar with the important functions will be fine.
 
@@ -566,7 +566,7 @@ Get familiar with the important functions will be fine.
 
 - Date functions: https://onlinehelp.tableau.com/current/pro/desktop/en-us/functions_functions_date.htm
 
-## Create quick table calculations
+## 4.2 Create quick table calculations
 
 A table calculation is a transformation you apply to the values of a single measure in your view, based on the dimensions in the level of detail.
 
@@ -587,7 +587,7 @@ Just right click on a can be done right clicking a measure. There are some pre-f
 
 (*) Need a time dimension in order to be calculated.
 
-## Use LOD calculations; types of LOD calculations
+## 4.3 Use LOD calculations; types of LOD calculations
 
 **What is LOD?**
 
@@ -641,35 +641,36 @@ https://www.tableau.com/about/blog/LOD-expressions
 
 
 # 5. Mapping (9%)
-### Pan & Zoom
-### Filtering
-### Map layering
-### Custom territories
-### Lasso & Radial selection
-## Understand how to modify locations within Tableau
-## Understand how to import and manage custom geocoding
-## Understand how to use a background image map
-## Understand how to use Geographic search
-## Understand how to connect to spatial files
+## 5.1 Map Manipulation
+### 5.1.1 Pan & Zoom
+### 5.1.2 Filtering
+### 5.1.3 Map layering
+### 5.1.4 Custom territories
+### 5.1.5 Lasso & Radial selection
+## 5.2 Understand how to modify locations within Tableau
+## 5.3 Understand how to import and manage custom geocoding
+## 5.4 Understand how to use a background image map
+## 5.5 Understand how to use Geographic search
+## 5.6 Understand how to connect to spatial files
 
 # 6. Analytics (15%)
-## Reference Lines
-## Reference Bands
-## Trend Lines
-## Trend Model
-## Forecasting
-## Drag & Drop Analytics
-## Box Plot
-## Reference distributions
-## Statistical summary card
-## Instant Analytics
+## 6.1 Reference Lines
+## 6.2 Reference Bands
+## 6.3 Trend Lines
+## 6.4 Trend Model
+## 6.5 Forecasting
+## 6.6 Drag & Drop Analytics
+## 6.7 Box Plot
+## 6.8 Reference distributions
+## 6.9 Statistical summary card
+## 6.10 Instant Analytics
 
 # 7. Dashboards (11%)
-## Understand publishing & sharing options
-## Understand how to build dashboards
-## Understand dashboard actions
-## Understand Device Designer
-## Understand how to create a drill down report
-## Understand how to utilize visual best practices for dashboard design
+## 7.1 Understand publishing & sharing options
+## 7.2 Understand how to build dashboards
+## 7.3 Understand dashboard actions
+## 7.4 Understand Device Designer
+## 7.5 Understand how to create a drill down report
+## 7.6 Understand how to utilize visual best practices for dashboard design
 
 
