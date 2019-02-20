@@ -643,34 +643,147 @@ https://www.tableau.com/about/blog/LOD-expressions
 # 5. Mapping (9%)
 ## 5.1 Map Manipulation
 ### 5.1.1 Pan & Zoom
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/inspectdata_pan_zoom.htm
+
 ### 5.1.2 Filtering
+
+http://www.storybench.org/build-map-use-filters-tableau-public/
+
 ### 5.1.3 Map layering
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/maps_options.htm
+
 ### 5.1.4 Custom territories
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/maps_custom_territories.htm
+
 ### 5.1.5 Lasso & Radial selection
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/inspectdata_selectiontools.htm
+
 ## 5.2 Understand how to modify locations within Tableau
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/maps_editlocation.htm
+
 ## 5.3 Understand how to import and manage custom geocoding
+
+**WHAT?** A Flexible way to plot data on a map. It's available for all workbooks on a computer. It's much better than blending a geo table.
+
+| Capability | Data Blending | Custom Geocoding |
+|------------|---------------|------------------|
+| Plot your own locations on a map view | Yes | Yes |
+| Use any data | Yes | No, text files only |
+| Add new geographic roles | No | Yes|
+| Add to an existing geographic role | No | Yes |
+| Create new geographic hierarchies | No | Yes |
+| Can be reused for other workbooks	| No |Yes |
+
+**HOW?**
+
+Map > Geocoding > Import Custom Geocoding
+
+Map > Geocoding > Remove Custom Geocoding
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/maps_customgeocode_datablend.htm
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/custom_geocoding.htm
+
+https://www.tableau.com/learn/tutorials/on-demand/custom-geocoding?signin=811711e0da62a84bc419d6e14f1ed646
+
 ## 5.4 Understand how to use a background image map
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/bkimages.htm
+
 ## 5.5 Understand how to use Geographic search
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/maps_mapsearch.htm
+
 ## 5.6 Understand how to connect to spatial files
 
+Spartial Files is a kind of special files that can be loaded into tableau by one connection (multiple files).
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/maps_shapefiles.htm
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/examples_spatial_files.htm
+
 # 6. Analytics (15%)
+
+A lot of cool stuff here!
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/environ_workspace_analytics_pane.htm
+
 ## 6.1 Reference Lines
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/reference_lines.htm
+
 ## 6.2 Reference Bands
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/reference_lines.htm
+
 ## 6.3 Trend Lines
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/trendlines_add.htm
+
 ## 6.4 Trend Model
+
+Can choose different regression models.
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/trendlines_add.htm
+
 ## 6.5 Forecasting
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/forecast_how_it_works.htm
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/forecast_create.htm
+
 ## 6.6 Drag & Drop Analytics
+
+https://community.tableau.com/thread/215043
+
 ## 6.7 Box Plot
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/buildexamples_boxplot.htm
+
 ## 6.8 Reference distributions
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/reference_lines.htm
+
 ## 6.9 Statistical summary card
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/inspectdata_summary.htm
+
 ## 6.10 Instant Analytics
+
+https://www.tableau.com/about/blog/2015/1/analytics-flow-36387
 
 # 7. Dashboards (11%)
 ## 7.1 Understand publishing & sharing options
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/publish_workbooks_share.htm
+
+https://kb.tableau.com/articles/howto/sharing-workbooks-without-tableau-desktop
+
 ## 7.2 Understand how to build dashboards
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/dashboards_create.htm
+
 ## 7.3 Understand dashboard actions
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/actions.htm
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/actions_highlight_advanced.htm
+
 ## 7.4 Understand Device Designer
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/dashboards_dsd_create.htm
+
 ## 7.5 Understand how to create a drill down report
+
+I.e. use a sheet as panel. Select the individual on the panel and another dashbord for that individual's details will show.
+
+https://community.tableau.com/thread/154368
+
 ## 7.6 Understand how to utilize visual best practices for dashboard design
 
 
