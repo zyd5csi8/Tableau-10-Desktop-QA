@@ -23,11 +23,9 @@ Before taking the certification, pleaes go to these website to take some mock ex
 
 Just for warming up!
 
-- https://community.tableau.com/thread/258716
-
-- http://www.tableauinfo.com/tableau-online-mock-tests.html
-
 - https://learningtableau.com
+
+- https://medium.com/@saahithisurapaneni/i-got-tableau-certified-you-can-too-9cd134c34068
 
 - https://www.simplilearn.com/tableau-exam-questions-free-practice-test
 
@@ -55,6 +53,20 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/datafields_typesandrole
 
 
 # 1. Data Connections (23%)
+
+Many questions will come from the new features of tableau 9.0 and 10.0.
+
+Tableau 9.0:
+
+https://www.tableau.com/about/blog/2015/1/90-preview-query-performance-improvements-36406
+
+Tableau 10.0:
+
+https://www.tableau.com/about/blog/2016/8/ten-features-it-will-love-tableau-10-57937
+
+https://www.tableau.com/new-features/10.0#tab-easier-1
+
+
 ## 1.1 Understand how to connect to Tableau Server
 
 Check:
