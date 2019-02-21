@@ -9,11 +9,33 @@ This note mainly follow the structure of Exam Prep Guid. I also added some conte
 
 Hopefully enough to pass (75%).
 
+***PLEASE REMEBER!!! GOOGLE IS ALOWED DURING THE TEST!!! SEARCH!***
+
 Exam prep guide:
 https://mkt.tableau.com/files/DesktopQA_ExamGuide.pdf
 
 Certification homepage:
 https://www.tableau.com/support/certification
+
+# Data Visual and Communication Part
+
+Before taking the certification, pleaes go to these website to take some mock exams and get some tips. 
+
+Just for warming up!
+
+- https://community.tableau.com/thread/258716
+
+- http://www.tableauinfo.com/tableau-online-mock-tests.html
+
+- https://learningtableau.com
+
+- https://www.simplilearn.com/tableau-exam-questions-free-practice-test
+
+- https://sarahlovesdata.co.uk/2018/08/06/the-tableau-desktop-qualified-associate-exam/
+
+- https://www.thedataschool.co.uk/wiktoria-rudz/prepare-tableau-certificate-exam/
+
+- https://biztory.com/2017/02/17/ace-tableau-desktop-qualified-associate-exam/
 
 # Data Visual and Communication Part
 ----------------------------------------------------------------------------------------------------------------------------------------
