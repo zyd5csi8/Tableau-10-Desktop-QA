@@ -17,7 +17,7 @@ https://mkt.tableau.com/files/DesktopQA_ExamGuide.pdf
 Certification homepage:
 https://www.tableau.com/support/certification
 
-# Data Visual and Communication Part
+# Some Hints and Usefull Webs!
 
 Before taking the certification, pleaes go to these website to take some mock exams and get some tips. 
 
@@ -34,6 +34,11 @@ Just for warming up!
 - https://www.thedataschool.co.uk/wiktoria-rudz/prepare-tableau-certificate-exam/
 
 - https://biztory.com/2017/02/17/ace-tableau-desktop-qualified-associate-exam/
+
+
+**All the Icons are listed here!**
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/tips_visualcues.htm
 
 # Data Visual and Communication Part
 ----------------------------------------------------------------------------------------------------------------------------------------
@@ -676,6 +681,15 @@ https://www.tableau.com/about/blog/LOD-expressions
 
 # 5. Mapping (9%)
 ## 5.1 Map Manipulation
+Different types of map:
+
+- Filled maps
+ 
+- Layered maps
+
+- WMS server maps
+
+- Symbol maps
 ### 5.1.1 Pan & Zoom
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/inspectdata_pan_zoom.htm
