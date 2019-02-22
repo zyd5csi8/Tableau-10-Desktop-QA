@@ -27,6 +27,8 @@ Just for warming up!
 
 - https://medium.com/@saahithisurapaneni/i-got-tableau-certified-you-can-too-9cd134c34068
 
+- http://www.tableauinfo.com/tableau-online-mock-tests.html
+
 - https://sarahlovesdata.co.uk/2018/08/06/the-tableau-desktop-qualified-associate-exam/
 
 - https://www.thedataschool.co.uk/wiktoria-rudz/prepare-tableau-certificate-exam/
@@ -879,7 +881,7 @@ https://community.tableau.com/thread/154368
 
 # Knowledge Base Questions
 
--To connect to multiple tables in a single data source at one time, what must be specified?  (A join)
+- To connect to multiple tables in a single data source at one time, what must be specified?  (A join)
 
 - Tableau can create worksheet-specific filters. (True)
 
@@ -984,3 +986,16 @@ https://community.tableau.com/thread/154368
 - We can combine database and flat file data in Tableau desktop (True)
 
 - Definition of a fact table? (The measurements, metrics or facts of a business process. It is located at the center of a star schema or a snowflake schema surrounded by dimension tables. )
+
+- Which of the following is a new Tableau 10 feature? (Subscribe others)
+
+- New connector in Tableau 10? (Web Data Connector)
+
+- What is the color of discrete Measures in Tableau? (Blue)
+
+- For Bullet Graphs we need at least ?? measures (2)
+
+- Which aggregate function is used to calculate distinct count (COUNTD())
+
+- What are the Tableau actions? (Filter, Highlight, Go to URL, Go to Sheet, Change Set Values)
+
