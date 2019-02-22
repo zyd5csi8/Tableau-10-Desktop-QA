@@ -27,8 +27,6 @@ Just for warming up!
 
 - https://medium.com/@saahithisurapaneni/i-got-tableau-certified-you-can-too-9cd134c34068
 
-- https://www.simplilearn.com/tableau-exam-questions-free-practice-test
-
 - https://sarahlovesdata.co.uk/2018/08/06/the-tableau-desktop-qualified-associate-exam/
 
 - https://www.thedataschool.co.uk/wiktoria-rudz/prepare-tableau-certificate-exam/
@@ -56,6 +54,9 @@ Measures: Quantitative, numeric values that can be aggregated (Green).
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/datafields_typesandroles.htm
 
+- How to dis-aggregate the data:
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/calculations_aggregation.htm#DisAggData
 
 # 1. Data Connections (23%)
 
@@ -187,14 +188,19 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/joining_tables.html
 
 ## 1.5 Data Preparation
 
+**Important Topic:** when to use join and when to use blending?
+
+If you want a single data source, join; multiple data sources, blending.
+
+
 ### 1.5.1 Blending
 
 **WHAT?** Mannually build connections between different data sources
 
 **WHEN?** You don't want to put all the data together (using join or union), perhaps because different details level, join causes duplicate or too much data.
 
-- A left join-like operation between different datasources.
-- Local to the view
+- A left join-like operation between different datasources. (That means the link will ensure all the records from main data sources exist, and then try to get inforamtion from other data sources based on relationship).
+- Local to the view (the relationship is between sheet and sheet.)
 - You can amend some data (using change alias option) on the _primary_ data source (you cannot do this on a Join operation).
 
 Look at the datasources:
@@ -299,6 +305,8 @@ https://www.tableau.com/about/blog/2014/7/understanding-tableau-data-extracts-pa
 
 - Pre-aggregations: create aggregated extract to make the data smaller
 
+https://www.theinformationlab.co.uk/2011/01/20/tableau-extracts-what-why-how-etc/
+
 https://www.tableau.com/about/blog/2014/7/why-use-tableau-data-extracts-32187
 
 https://www.tableau.com/tableau-data-extracts-part3
@@ -311,13 +319,19 @@ https://www.tableau.com/tableau-data-extracts-part3
 
 - Some of the calculated functions are limited to TDE
 
+**Important!** What does TDE and live connection cannot do?
+
+- TDE cannot cross join to Live
+
+- Live cannot use several functions
+
 http://drawingwithnumbers.artisart.org/tde-or-live-when-to-use-tableau-data-extracts/
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/extracting_data.htm
 
 ## 1.9 Understand Shadow extracts
 
-**WHAT?** Shadow extracts is data that Tableau stores when using file (like non-legacy excel) to make loading data faster.
+**WHAT?** Shadow extracts is data that Tableau stores when using file (like non-legacy excel) to make loading data faster. I.e. a tempory extract file, will be deleted after then.
 
 **WHEN?** when processing non-legacy excel files, statistical files, or text files.
 
@@ -540,7 +554,7 @@ Add measure name to **Color** and trun off the **Stack Marks** on **Analysis**.
 
 https://www.decisivedata.net/blog/building-bullet-chart-tableau
 
-### 3.4.12 Box plots
+### Important!!! 3.4.12 Box plots
 
 | Data  | Requirments |
 | ------------- | ------------- |
@@ -548,6 +562,10 @@ https://www.decisivedata.net/blog/building-bullet-chart-tableau
 | Columns shelf:  | Dimension  |
 | Rows shelf:  | Measure  |
 | Detail:  | Dimension  |
+
+**Important**: How to interpret box plots?
+
+- Boxes indicate the middle 50 percent of the data (that is, the middle two quartiles of the data's distribution).
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/buildexamples_boxplot.htm
 
@@ -569,6 +587,7 @@ https://www.tableau.com/about/blog/2017/6/using-gantt-charts-tableau-manage-proj
 ### 3.4.14 Paretos
 
 A bar chart with a line chart. We can add table calculation on the bar (line).
+The bar will be automatically sorted decending.
 
 https://www.tableau.com/learn/tutorials/on-demand/pareto-charts
 
@@ -599,6 +618,8 @@ Annotations: https://onlinehelp.tableau.com/current/pro/desktop/en-us/formatting
 # 4. Calculations (17%)
 ## 4.1 Manipulate string and date calculations
 
+Just open the page to find the function you want. Or just Google it.
+
 Get familiar with the important functions will be fine.
 
 - String functions: https://onlinehelp.tableau.com/current/pro/desktop/en-us/functions_functions_string.htm
@@ -625,6 +646,10 @@ Just right click on a can be done right clicking a measure. There are some pre-f
 - (*) YTD growth
 
 (*) Need a time dimension in order to be calculated.
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/calculations_tablecalculations.htm
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/functions_functions_tablecalculation.htm
 
 ## 4.3 Use LOD calculations; types of LOD calculations
 
@@ -684,12 +709,21 @@ https://www.tableau.com/about/blog/LOD-expressions
 Different types of map:
 
 - Filled maps
+
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/maps_howto_filledpiechart.htm
  
 - Layered maps
 
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/maps_options.htm#add-us-data-layers
+
 - WMS server maps
 
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/maps_mapsources_wms.htm
+
 - Symbol maps
+
+https://www.theinformationlab.co.uk/2014/12/11/show-symbol-maps/
+
 ### 5.1.1 Pan & Zoom
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/inspectdata_pan_zoom.htm
@@ -771,6 +805,10 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/reference_lines.htm
 
 ## 6.3 Trend Lines
 
+- Understand how to compare and choose models
+
+- meanning of R^2 and P-value.
+
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/trendlines_add.htm
 
 ## 6.4 Trend Model
@@ -780,6 +818,10 @@ Can choose different regression models.
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/trendlines_add.htm
 
 ## 6.5 Forecasting
+
+- Understand how to find Upper and Lower forecasting margins
+
+- how to change confidence level
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/forecast_how_it_works.htm
 
@@ -833,5 +875,112 @@ I.e. use a sheet as panel. Select the individual on the panel and another dashbo
 https://community.tableau.com/thread/154368
 
 ## 7.6 Understand how to utilize visual best practices for dashboard design
+----------------------------------------------------------------------------------------------------------------------------------------
 
+# Knowledge Base Questions
 
+-To connect to multiple tables in a single data source at one time, what must be specified?  (A join)
+
+- Tableau can create worksheet-specific filters. (True)
+
+- What does the box in a box plot represent? (The range of the middle half of the data points)
+
+- Where can find the Saved Data Source option in Tableau? (Start Page)
+
+- Reference Line Uses Parameter (fixed numbers)? (True)
+
+- How to lable multiple fields in a graph? (drag both the field into label)
+
+- The tableau desktop automatically creates a hierachy of data part. Can we change the order without using any field? (Yes)
+
+- If we create a set, then how and where it will save? (In the data pane as a calculated field)
+
+- When you drag a measure and a dimension in the view, what is the order of the tree map? (Lower value in the bottom right and higher value in the top left)
+
+- How do we save ad-hoc calculation? (drag it in the measure or dimension and rename)
+
+- In data blending, relational data field is required in visualization of the data (No)
+
+- Which of the following charts types always includes bars sorted in descending order? (Pareto Chart)
+
+- Which of the following charts uses binned data? (Histogram)
+
+- If a field has a blue background, that means the field is? (Discrete)
+
+- When might you want to use a context filter? (When you want to FIRST apply a filter and THEN show the Top N or Bottom N elements)
+
+- This type level of detail expression computes total sales for the region, regardless of what dimensions are shown in the view. ({ FIXED [Region] : SUM([Sales]) })
+
+- A dimension is a field that typically holds (discrete qualitative data)
+
+- Dates are typically treated as (Dimension)
+
+- A Reference Band cannot be based on two fixed points. (False)
+
+- A Reference Distribution plot cannot be along a continuous axis. (False)
+
+- Which of the following is not a Trend Line model? (Binomial Trend Line)
+
+- Is it possible to deploy a URL action on a dashboard object to open a Web Page within a dashboard rather than opening the system's web browser? (True, with the use of a Web Page object)
+
+- The Highlighting action can be disabled for the entire workbook. (True)
+
+- A sheet cannot be used within a story directly. Either sheets should be used within a dashboard, or a dashboard should be used within a story. (False)
+
+- How do you identify a continuous field in Tableau? (It is identified by a green pill in a visualization.)
+
+-  Is it possible to use measures in the same view multiple times (e.g. SUM of the measure and AVG of the measure)? (Yes)
+
+- Sets can be created on Measures. (False)
+
+- For creating variable size bins we use (Calculated Fields)
+
+- A good reason to use a bullet graph is (Comparing the actual against the target sales)
+
+- Disaggregation returns all records in the underlying data source (True)
+
+- By definition, Tableau displays measures over time as a (Line)
+
+- A Reference Band can't be founded on two settled focuses. (False)
+
+- A Reference Dissemination plot can't be along a consistent hub. (False)
+
+- Which of the accompanying isn't a Pattern Line display? (Binomial Pattern Line)
+
+- The picture beneath utilizes which delineate? (WMS server maps)
+
+- Is it conceivable to convey a URL activity on a dashboard question open a Site page inside a dashboard as opposed to opening the framework's internet browser?  (True, with the utilization of a Site page protest)
+
+- The Featuring activity can be crippled for the whole exercise manual. (True)
+
+- A sheet can't be utilized inside a story straightforwardly. Either sheet ought to be utilized inside a dashboard, or a dashboard ought to be utilized inside a story. (False)
+
+- How would you recognize a ceaseless field in Scene? (It is recognized by a green pill in a perception)
+
+- Is it conceivable to utilize measures in a similar view various circumstances (e.g. Total of the measure and AVG of the measure)?  (Yes)
+
+- Sets can be made on Measures. (False)
+
+- For making variable size canisters we utilize (Calculated Fields)
+
+- A justifiable reason motivation to utilize a projectile chart. (Looking at the genuine against the objective deals)
+
+- Disaggregation restores all records in the hidden information source. (True)
+
+- By definition, Scene shows measures after some time as a (Line)
+
+- Can we perform all kinds of joins using Data blending?  (Yes)
+
+- Can we display top five and last five sales in the same view? (Yes, using set)
+
+- Can parameters have a dropdown list? (Yes)
+
+- Increase filter numbers will optimize the performance of dashboard? (False)
+
+- Can we remove the All options from a Tableau auto-filter?  (Yes)
+
+- Is performance testing available in tableau? (Yes)
+
+- We can combine database and flat file data in Tableau desktop (True)
+
+- Definition of a fact table? (The measurements, metrics or facts of a business process. It is located at the center of a star schema or a snowflake schema surrounded by dimension tables. )
