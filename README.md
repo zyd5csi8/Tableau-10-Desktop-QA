@@ -989,7 +989,7 @@ https://community.tableau.com/thread/154368
 
 - Which of the following is a new Tableau 10 feature? (Subscribe others)
 
-- New connector in Tableau 10? (Web Data Connector)
+- New connector in Tableau 10? (Web Data Connector & MemSQL Names Connector)
 
 - What is the color of discrete Measures in Tableau? (Blue)
 
