@@ -1,13 +1,12 @@
 # Tableau Desktop 10 Qualified Associate - Exam Outline
 
-Exam notes with links to questions, and solutions that
-exemplify what's needed / asked in the Tableau 10 QA Exam.
+Exam notes with links to questions, and solutions that exemplify what's needed / asked in the Tableau 10 QA Exam.
 
-Large part of the content from **@igponce**, really appreicate it.
+Large part of the content from **@igponce**, really appreciate it.
 
-This note mainly follow the structure of Exam Prep Guid. I also added some contents from course **"Data Visual and Communication"** by **Hettie Tabor**.
+This note mainly follow the structure of Exam Prep Guide. I also added some contents from course **"Data Visual and Communication"** by **Hettie Tabor**.
 
-Hopefully enough to pass (75%).
+Hopefully enough to pass (75%). (And I did, it's not that hard...)
 
 ***PLEASE REMEBER!!! GOOGLE IS ALOWED DURING THE TEST!!! SEARCH!***
 
@@ -17,9 +16,9 @@ https://mkt.tableau.com/files/DesktopQA_ExamGuide.pdf
 Certification homepage:
 https://www.tableau.com/support/certification
 
-# Some Hints and Usefull Webs!
+# Some Hints and Useful Webs!
 
-Before taking the certification, pleaes go to these website to take some mock exams and get some tips. 
+Before taking the certification, please go to these website to take some mock exams and get some tips. 
 
 Just for warming up!
 
@@ -46,11 +45,11 @@ Go through all the notes of **Data Visual and Communication**.
 
 https://drive.google.com/drive/folders/15blyiQMiDzVUrunjUoAJsGFrR2Y_7ocu?usp=sharing
 
-# Exam Prep Guid Part
+# Exam Prep Guide Part
 ----------------------------------------------------------------------------------------------------------------------------------------
 # 0. Dimensions and Measures
 
-Dimension: Qualitative values that cannot be aggregated(Blue).
+Dimension: Qualitative values that cannot be aggregated (Blue).
 
 Measures: Quantitative, numeric values that can be aggregated (Green).
 
@@ -86,9 +85,9 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/examples_tableauserver.
 
 **WHAT?** Tableau will perform queries in parallel **whenever possible**.That is, multiple queries in the same time.
 
-In more details, if we're using data from different data sources, Tableau will make queries in parallel without waiting one datasource query to finish before it makes the second query.
+In more details, if we're using data from different data sources, Tableau will make queries in parallel without waiting one data source query to finish before it makes the second query.
 
-*Before version 9.0, tableau desktop and tableau server can only build one connection to one data source, and perform the queries sequentially. So, the totally running time <= sum(single runnning times). After set the Parallel Query features, multiple queries will run at the same time to improve the performance.*
+*Before version 9.0, tableau desktop and tableau server can only build one connection to one data source, and perform the queries sequentially. So, the totally running time <= sum (single running times). After set the Parallel Query features, multiple queries will run at the same time to improve the performance.*
 
 **LIMITS**
 - **Parallel queries will run only when possible.**
@@ -97,17 +96,16 @@ The parallel queries will run in parallel only if there are not concurrent queri
 
 - **if too many queries (or resource-intensive queries) are happening in parallel, the performance may be slower than expected.**
 
-The level of paralelism is configurable on the 'connection-configs.xml' file (located in the Tableau instalation dir)
+The level of parallelism is configurable on the 'connection-configs.xml' file (located in the Tableau installation dir.)
 
 From: http://kb.tableau.com/articles/howto/Configuring-Parallel-Queries-in-Tableau-Desktop
 
 ### 1.2.2 Data engine vectorization
 
-**WHAT?** A new feature in Tableau 9. Most articles don't go deep into this topic. It's a cpu calculation improve to make performance better.
+**WHAT?** A new feature in Tableau 9. Most articles don't go deep into this topic. It's a CPU calculation improve to make performance better.
 
 ```
-Now tableau uses SIMD instructions (SSE4.1) to make calculations, thus better filling the
-data and execution pipeline of the processor.
+Now tableau uses SIMD instructions (SSE4.1) to make calculations, thus better filling the data and execution pipeline of the processor.
 ```
 
 From https://alanattableau.files.wordpress.com/2015/07/designing-efficient-workbooks-v92.pdf
@@ -129,20 +127,19 @@ From https://alanattableau.files.wordpress.com/2015/07/designing-efficient-workb
 
 Tableau will cache data in memory / disk to avoid to ask ("go to the network") or parse data that won't have changed (E.g. file-based data).
 
-With extenal query caching, Tableau doesn't need to parse a **whole** file to show some data.
+With external query caching, Tableau doesn't need to parse a **whole** file to show some data.
 This data can be presented as cache goes on.
 
-**LIMITS** when the cache is invalidated, it will need to re-parse the file again, so it's a good idea to maka an extract unless the data is really tiny or can change unexpectedly.
+**LIMITS** when the cache is invalidated, it will need to re-parse the file again, so it's a good idea to make an extract unless the data is really tiny or can change unexpectedly.
 
 ### 1.2.5 Query fusion
 
-**WHAT?** A function to improve dashbord queries running performance.
+**WHAT?** A function to improve dashboard queries running performance.
 
 Tableau will at all of dashboard queries and tries to eliminate any redundant queries.
 
 It combining queries together and using the results.
-E.g. If the same query is needeed in the same dashboard in several sheets, Tableau
-tries to combine this multiple queryes into (just) one. 
+E.g. If the same query is needed in the same dashboard in several sheets, Tableau tries to combine this multiple queries into (just) one. 
 
 **This works with queries with the same LOD.**
 
@@ -153,16 +150,16 @@ tries to combine this multiple queryes into (just) one.
 
 **WHEN?** Sometimes your data has multiple fields encoded inside string fields. Or u just want to split (e.g. full name & first name)
 
-**WHY?** Denormalization, you cannot touch the schema, etc.
+**WHY?** Demoralization, you cannot touch the schema, etc.
 
-- Automatic split: happens when tableau can guess what kind of data is inside,separators, etc...
-- Custom split: Mannually set the model of split. Similar to calculated field.
+- Automatic split: happens when tableau can guess what kind of data is inside, separators, etc...
+- Custom split: Manually set the model of split. Similar to calculated field.
 
-Data Split cannot happen automagicaly. Tableau will only split fields it's told to do so (Mannually do it).
+Data Split cannot happen automatically. Tableau will only split fields it's told to do so (Manually do it).
 
 You can split data from the Data pane, or right-click: Transform -> Split.
 
-**Important: Data from splits cannot be used for Joing tables; but can be used for blending.**
+**Important: Data from splits cannot be used for Join tables; but can be used for blending.**
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/split.html
 
@@ -172,7 +169,7 @@ Same joins (inner, left, right, full & union) with SQL.
 
 **2 Types:**
 
-- Join tables from same data source: just drag tables and set key (and other configerations)
+- Join tables from same data source: just drag tables and set key (and other configurations)
 
 - Join tables from different data sources: build 2 difference connections, and then drag tables.
 
@@ -180,7 +177,7 @@ Same joins (inner, left, right, full & union) with SQL.
 
 - Null Value: if we use simple join, the Null value will be excluded (deleted). If we use **"Join null values to null values"**, Null value will be used in the join process.
 
-- Colation problems (like having fields on UTF-8 and CP850 on different connections).
+- Collation problems (like having fields on UTF-8 and CP850 on different connections).
 
 - Problems with different date formats (be careful to use the same Level of Detail for all data sources).
 
@@ -197,30 +194,30 @@ If you want a single data source, join; multiple data sources, blending.
 
 ### 1.5.1 Blending
 
-**WHAT?** Mannually build connections between different data sources
+**WHAT?** Manually build connections between different data sources
 
 **WHEN?** You don't want to put all the data together (using join or union), perhaps because different details level, join causes duplicate or too much data.
 
-- A left join-like operation between different datasources. (That means the link will ensure all the records from main data sources exist, and then try to get inforamtion from other data sources based on relationship).
+- A left join-like operation between different data sources. (That means the link will ensure all the records from main data sources exist, and then try to get information from other data sources based on relationship).
 - Local to the view (the relationship is between sheet and sheet.)
 - You can amend some data (using change alias option) on the _primary_ data source (you cannot do this on a Join operation).
 
-Look at the datasources:
+Look at the data sources:
 
 Blue check -> Primary data source (the left part of the left join)
-Orange check -> Secondary source (the ritht part of the left join)
+Orange check -> Secondary source (the right part of the left join)
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/multiple_connections.htm
 
 **Automatic Blend**
 
-Do not mannually set keys in relationship.
+Do not manually set keys in relationship.
 
 Tableau guesses the blend looking for a field in both data sources with the same name.
 
 **Manual Blend**
 
-Mannually set keys in relationship cause you do not like the default one.
+Manually set keys in relationship because you do not like the default one.
 
 "Data" -> "Edit Relationship".
 
@@ -315,13 +312,13 @@ https://www.tableau.com/tableau-data-extracts-part3
 
 **TDE vs. Live Connections**
 
--  An 'extract' connection is a connection with a static database, which is refreshed every day/hour/period. All data is copied from the datasource to Tableau Server. Refreshing the datasource will not give you the latest data - you have to refresh the extract to get these.
+-  An 'extract' connection is a connection with a static database, which is refreshed every day/hour/period. All data is copied from the data source to Tableau Server. Refreshing the data source will not give you the latest data - you have to refresh the extract to get these.
 
--  A live connection will query the underlying data in the datasource/database - refreshing the visualisation will give you the latest results. No data is copied to Tableau Server for pre-processing.
+-  A live connection will query the underlying data in the data source/database - refreshing the visualization will give you the latest results. No data is copied to Tableau Server for pre-processing.
 
 - Some of the calculated functions are limited to TDE
 
-**Important!** What does TDE and live connection cannot do?
+**Important!** what does TDE and live connection cannot do?
 
 - TDE cannot cross join to Live
 
@@ -333,7 +330,7 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/extracting_data.htm
 
 ## 1.9 Understand Shadow extracts
 
-**WHAT?** Shadow extracts is data that Tableau stores when using file (like non-legacy excel) to make loading data faster. I.e. a tempory extract file, will be deleted after then.
+**WHAT?** Shadow extracts is data that Tableau stores when using file (like non-legacy excel) to make loading data faster. I.e. a temporary extract file, will be deleted after then.
 
 **WHEN?** when processing non-legacy excel files, statistical files, or text files.
 
@@ -345,7 +342,7 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/extracting_data.htm
 
 - Tableau will store up to 5 files with .ttde extension.
 
-- Altough they're named extracts, its file format is not the same as .tde (extract) files.
+- Although they're named extracts, its file format is not the same as .tde (extract) files.
 
 Location:
     - For Windows: Users\AppData\Local\Tableau\Caching\TemporaryExtracts
@@ -397,7 +394,7 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/qs_hierarchies.htm
 
 Sets are useful in situations it's needed to test in-out membership (AB Testing).
 
-Except mannually selecting members from a list, sets can be created by certain conditions or top.
+Except manually selecting members from a list, sets can be created by certain conditions or top.
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/sortgroup_sets_create.htm
 
@@ -414,7 +411,7 @@ https://interworks.com/blog/kwagner/2014/06/30/when-use-filters-groups-sets-tabl
 
 **Discrete values**
 
-- Take a limited number of values (size: XS,S,M,L,XL - City: Madrid, Barcelona, Chigago), Could be numeric (customer ID).
+- Take a limited number of values (size: XS,S,M,L,XL - City: Madrid, Barcelona, Chicago), Could be numeric (customer ID).
 
 - Add headers to the view.
 
@@ -446,14 +443,13 @@ When we use (part of the) measures to create a visualization, the inner logic is
 
 - Show measure names as field headers
 
-- Use measure names to filer out the measures we don't want.
+- Use measure names to filter out the measures we don't want.
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/datafields_understanddatawindow_meavalues.htm
 
 ## 3.3 Understand generated fields
 
-**WHAT** Generated fields are fields that Tableau brings as a convenience,
-either by internal calculations, or by looking up an internal table / using an internal engine. Calculated fields are also a part of generated fields.
+**WHAT** Generated fields are fields that Tableau brings as a convenience, either by internal calculations, or by looking up an internal table / using an internal engine. Calculated fields are also a part of generated fields.
 
 **INCLUDING: **
 
@@ -472,11 +468,11 @@ https://www.evolytics.com/blog/tableau-fundamentals-introduction-calculated-fiel
 ## 3.4 Understand how and when to build:
 ### 3.4.1 Histograms
 
-| Data  | Requirments |
+| Data | Requirements |
 | ------------- | ------------- |
-| Mark type  | Automatic  |
-| Rows shelf:  | Continuous measure (aggregated by Count or Count Distinct)  |
-| Columns shelf:  | Bin (continuous or discrete)  |
+| Mark type | Automatic |
+| Rows shelf:  | Continuous measure (aggregated by Count or Count Distinct) |
+| Columns shelf:  | Bin (continuous or discrete) |
 
 *What is bin? https://onlinehelp.tableau.com/current/pro/desktop/en-us/calculations_bins.htm*
 
@@ -484,11 +480,11 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/buildexamples_histogram
 
 ### 3.4.2 Heat maps
 
-| Data  | Requirments |
+| Data | Requirements |
 | ------------- | ------------- |
-| Mark type  | Density  |
-| Rows and Columns:  | At least one continuous measure, and at least one measure or dimension  |
-| Marks card:  | At least one continuous measure  |
+| Mark type | Density |
+| Rows and Columns:  | At least one continuous measure, and at least one measure or dimension |
+| Marks card:  | At least one continuous measure |
 
 A data table that locate "hot spots" on data (use marks card to show data rather than numbers).
 
@@ -498,12 +494,12 @@ https://www.evolytics.com/blog/tableau-201-make-heat-map/
 
 ### 3.4.3 Tree maps
 
-| Data  | Requirments |
+| Data | Requirements |
 | ------------- | ------------- |
-| Mark type  | Automatic or Square  |
-| Color:  | Dimension or Measure  |
-| Size  | Measure  |
-| Label or Detail:  | Dimension(s)  |
+| Mark type | Automatic or Square |
+| Color:  | Dimension or Measure |
+| Size | Measure |
+| Label or Detail:  | Dimension(s) |
 
 It fills a rectangle with data, using area size to display each category importance.
 
@@ -552,18 +548,18 @@ https://www.tutorialspoint.com/tableau/tableau_motion_charts.htm
 
 ### 3.4.11 Bar in bar charts
 
-Add measure name to **Color** and trun off the **Stack Marks** on **Analysis**.
+Add measure name to **Color** and turn off the **Stack Marks** on **Analysis**.
 
 https://www.decisivedata.net/blog/building-bullet-chart-tableau
 
 ### Important!!! 3.4.12 Box plots
 
-| Data  | Requirments |
+| Data | Requirements |
 | ------------- | ------------- |
-| Mark type  | Circle  |
-| Columns shelf:  | Dimension  |
-| Rows shelf:  | Measure  |
-| Detail:  | Dimension  |
+| Mark type | Circle |
+| Columns shelf:  | Dimension |
+| Rows shelf:  | Measure |
+| Detail:  | Dimension |
 
 **Important**: How to interpret box plots?
 
@@ -571,39 +567,39 @@ https://www.decisivedata.net/blog/building-bullet-chart-tableau
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/buildexamples_boxplot.htm
 
-### 3.4.13 Gantt Bar Charts
+### 3.4.13 Gantt bar Charts
 
 Show duration on a calendar.
 
-| Data  | Requirments |
+| Data | Requirements |
 | ------------- | ------------- |
-| Mark type  | Automatic or Gantt Bar  |
-| Columns shelf:  | Date or Time field (continuous measure)  |
-| Rows shelf:  | Dimension(s)  |
-| Size:  | Continuous measure  |
+| Mark type | Automatic or Gantt Bar |
+| Columns shelf:  | Date or Time field (continuous measure) |
+| Rows shelf:  | Dimension(s) |
+| Size:  | Continuous measure |
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/buildexamples_gantt.htm
 
 https://www.tableau.com/about/blog/2017/6/using-gantt-charts-tableau-manage-project-72429
 
-### 3.4.14 Paretos
+### 3.4.14 Pateros
 
 A bar chart with a line chart. We can add table calculation on the bar (line).
-The bar will be automatically sorted decending.
+The bar will be automatically sorted descending.
 
 https://www.tableau.com/learn/tutorials/on-demand/pareto-charts
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/pareto.htm
 
-### 3.4.15 Sparklines
+### 3.4.15 Sparkline
 
-A sparkline is a compact trend line chart without axis that fits in a small area and shows values over time.
-
-https://kb.tableau.com/articles/howto/creating-sparklines
+A Sparkline is a compact trend line chart without axis that fits in a small area and shows values over time.
 
 https://kb.tableau.com/articles/howto/creating-sparklines
 
-## 3.5 Understand how to effectively use titles, captions  and tooltips
+https://kb.tableau.com/articles/howto/creating-sparklines
+
+## 3.5 Understand how to effectively use titles, captions and tooltips
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/formatting_specific_titlecaption.htm
 
@@ -635,15 +631,15 @@ A table calculation is a transformation you apply to the values of a single meas
 Quick table calculations are the easiest way to make table calculations.
 
 Just right click on a can be done right clicking a measure. There are some pre-fixed table calculations available:
-- Running total (great for displaying goals and Cummulative Distribution Functions - RUNNING_SUM(SUM([Sales])))
-- Difference ( ZN(SUM([measure])) - LOOKUP(ZN(SUM([measure])), -1) )
+- Running total (great for displaying goals and Cumulative Distribution Functions - RUNNING_SUM (SUM ([Sales])))
+- Difference (ZN (SUM ([measure])) - LOOKUP (ZN (SUM ([measure])), -1))
 - Percent difference : (ZN(SUM([measure])) - LOOKUP(ZN(SUM([measure])), -1)) / ABS(LOOKUP(ZN(SUM([measure])), -1))
-- Percent of total : SUM([measure]) / TOTAL(SUM([measure]))
-- Rank (quicker to type than RANK([measure]).
-- Percentile ( Equals to: RANK_PERCENTILE(SUM([measure])) )
-- Moving average (Equals to: WINDOW_AVG(SUM([measure]), -2, 0)
+- Percent of total: SUM ([measure]) / TOTAL (SUM ([measure]))
+- Rank (quicker to type than RANK ([measure]).
+- Percentile (Equals to: RANK_PERCENTILE (SUM ([measure])))
+- Moving average (Equals to: WINDOW_AVG (SUM ([measure]), -2, 0)
 - (*) YTD Total
-- (*) Compound growt rate
+- (*) Compound growth rate
 - (*) Year over Year growth
 - (*) YTD growth
 
@@ -659,7 +655,7 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/functions_functions_tab
 
 - We know the information are in different levels (e.g. **[Sales] / [Profit]**, **SUM[ProfitRatio]** and **SUM(Sales) / SUM(Profit)**).
 
-- When we use aggregated and unaggregated data into the same calculation (e.g. **[Sales] – AVG([Sales])**) , error happends:
+- When we use aggregated and in-aggregated data into the same calculation (e.g. **[Sales] – AVG([Sales])**) , error happens:
 
 > “Cannot mix aggregate and non-aggregate arguments with this function”
 
@@ -667,9 +663,9 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/functions_functions_tab
 
 **What is LOD of Filter?**
 
-Before we discussing about LOD Expressions, we must understand the running squence of Filters and their LOD.
+Before us discussing about LOD Expressions, we must understand the running sequence of Filters and their LOD.
 
-There are different types of Flters in Tableau, and they will run in the following sequence:
+There are different types of Filters in Tableau, and they will run in the following sequence:
 1. Extract Filters
 2. Data Source Filters
 3. Context Filters
@@ -679,7 +675,7 @@ There are different types of Flters in Tableau, and they will run in the followi
 5. Measure Filter
    - = Having in SQL
    - The place that INCLUDE/EXCLUDE LOD perform
-6. Tablea Calculation Filters
+6. Tableau Calculation Filters
 
 For the filters in the same type, the running sequence will be decided by the position.
 
@@ -687,15 +683,15 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/calculations_calculated
 
 **What is LOD Expression?**
 
-LOD expression is a exppression in calculatied fields to set the LOD of calcualtion. In more details, it allow users to run calculations on the root data, before any filters.
+LOD expression is an expression in calculated fields to set the LOD of calculation. In more details, it allow users to run calculations on the root data, before any filters.
 
 3 kinds of LOD calculations:
 
 | LOD | Descr | Use in | Example |
 |-----|-------|--------|---------|
 | INCLUDE | Adds the data from the dimension, regardless of what's on the view. | Get the calculation to include a lower level | **AVG({INCLUDE [Customer Name] : SUM([Sales])})** Get sum of sales of a lower level, each customer. |
-| EXCLUDE | Removes the data from the specified dimension, regardless of what's on the view. | Get the calculation to omit a lower level| **SUM({EXCLUDE [Month] : SUM([Sales])})** Omit level [Month], get sales sum of the higer level. |
-| FIXED   | Uses the data in specified dimensions without reference to anything in the view. | Get the sum of a lower level | **{FIXED [Region] : SUM([Sales])}** Get sum of sales on the sepcific [region] level. |
+| EXCLUDE | Removes the data from the specified dimension, regardless of what's on the view. | Get the calculation to omit a lower level| **SUM ({EXCLUDE [Month]: SUM ([Sales])}) ** Omit level [Month], get sales sum of the higher level. |
+| FIXED   | Uses the data in specified dimensions without reference to anything in the view. | Get the sum of a lower level | **{FIXED [Region] : SUM([Sales])}** Get sum of sales on the specific [region] level. |
 
  
 
@@ -785,7 +781,7 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/maps_mapsearch.htm
 
 ## 5.6 Understand how to connect to spatial files
 
-Spartial Files is a kind of special files that can be loaded into tableau by one connection (multiple files).
+Spatial Files is a kind of special files that can be loaded into tableau by one connection (multiple files).
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/maps_shapefiles.htm
 
@@ -809,7 +805,7 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/reference_lines.htm
 
 - Understand how to compare and choose models
 
-- meanning of R^2 and P-value.
+- meaning of R^2 and P-value.
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/trendlines_add.htm
 
@@ -823,7 +819,7 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/trendlines_add.htm
 
 - Understand how to find Upper and Lower forecasting margins
 
-- how to change confidence level
+- How to change confidence level
 
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/forecast_how_it_works.htm
 
@@ -872,7 +868,7 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/dashboards_dsd_create.h
 
 ## 7.5 Understand how to create a drill down report
 
-I.e. use a sheet as panel. Select the individual on the panel and another dashbord for that individual's details will show.
+I.e. use a sheet as panel. Select the individual on the panel and another dashboard for that individual's details will show.
 
 https://community.tableau.com/thread/154368
 
@@ -891,15 +887,15 @@ https://community.tableau.com/thread/154368
 
 - Reference Line Uses Parameter (fixed numbers)? (True)
 
-- How to lable multiple fields in a graph? (drag both the field into label)
+- How to label multiple fields in a graph? (Drag both the field into label)
 
-- The tableau desktop automatically creates a hierachy of data part. Can we change the order without using any field? (Yes)
+- The tableau desktop automatically creates a hierarchy of data part. Can we change the order without using any field? (Yes)
 
 - If we create a set, then how and where it will save? (In the data pane as a calculated field)
 
 - When you drag a measure and a dimension in the view, what is the order of the tree map? (Lower value in the bottom right and higher value in the top left)
 
-- How do we save ad-hoc calculation? (drag it in the measure or dimension and rename)
+- How do we save ad-hoc calculation? (Drag it in the measure or dimension and rename)
 
 - In data blending, relational data field is required in visualization of the data (No)
 
@@ -907,11 +903,11 @@ https://community.tableau.com/thread/154368
 
 - Which of the following charts uses binned data? (Histogram)
 
-- If a field has a blue background, that means the field is? (Discrete)
+- If a field has a blue background that means the field is? (Discrete)
 
 - When might you want to use a context filter? (When you want to FIRST apply a filter and THEN show the Top N or Bottom N elements)
 
-- This type level of detail expression computes total sales for the region, regardless of what dimensions are shown in the view. ({ FIXED [Region] : SUM([Sales]) })
+- This type level of detail expression computes total sales for the region, regardless of what dimensions are shown in the view. ({FIXED [Region]: SUM ([Sales])})
 
 - A dimension is a field that typically holds (discrete qualitative data)
 
@@ -993,9 +989,9 @@ https://community.tableau.com/thread/154368
 
 - What is the color of discrete Measures in Tableau? (Blue)
 
-- For Bullet Graphs we need at least ?? measures (2)
+- For Bullet Graphs we need at least?? Measures (2)
 
-- Which aggregate function is used to calculate distinct count (COUNTD())
+- Which aggregate function is used to calculate distinct count (COUNTD ())
 
 - What are the Tableau actions? (Filter, Highlight, Go to URL, Go to Sheet, Change Set Values)
 
